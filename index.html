@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1a0c2e" />
+  <meta name="description" content="MISS CAC — celebrating confidence, character and purpose." />
+  <title>MISS CAC | Beauty, Grace & Purpose</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    :root {
+      --ink: #1a0c2e;
+      --ink-light: #2d1b45;
+      --purple: #5b2d91;
+      --purple-light: #7b4fbe;
+      --gold: #d9ad54;
+      --gold-light: #f0d58f;
+      --cream: #faf7f2;
+      --muted: #7a7285;
+      --border-light: #ede8f2;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --shadow-sm: 0 4px 16px rgba(26, 12, 46, 0.04);
+      --shadow-md: 0 12px 32px rgba(26, 12, 46, 0.08);
+      --shadow-lg: 0 24px 56px rgba(26, 12, 46, 0.12);
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: #2a1f38;
+      background: #fff;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: "Playfair Display", serif;
+      letter-spacing: -0.01em;
+    }
+
+    /* ─── NAVBAR ─── */
+    .navbar {
+      background: rgba(26, 12, 46, 0.92);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      padding: 16px 0;
+      transition: var(--transition);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .navbar.scrolled {
+      padding: 10px 0;
+      background: rgba(26, 12, 46, 0.98);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+    }
+    .navbar-brand {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: #fff !important;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-mark {
+      color: var(--gold);
+      font-size: 1.1rem;
+      animation: subtle-pulse 3s ease-in-out infinite;
+    }
+    @keyframes subtle-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    .nav-link {
+      color: rgba(255,255,255,0.75) !important;
+      font-weight: 600;
+      font-size: 0.88rem;
+      margin: 0 6px;
+      position: relative;
+      transition: color var(--transition);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width var(--transition), left var(--transition);
+    }
+    .nav-link:hover { color: var(--gold) !important; }
+    .nav-link:hover::after { width: 100%; left: 0; }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #e8c879, #c99538);
+      border: 0;
+      color: #1a0c2e;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 13px 28px;
+      box-shadow: 0 8px 24px rgba(217, 173, 84, 0.25);
+      transition: all var(--transition);
+      letter-spacing: 0.02em;
+      font-size: 0.92rem;
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #f0d58f, #d9ad54);
+      color: #1a0c2e;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(217, 173, 84, 0.35);
+    }
+    .btn-gold:active { transform: translateY(0); }
+
+    .btn-outline-light {
+      border-radius: 999px;
+      padding: 12px 26px;
+      font-weight: 700;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      transition: all var(--transition);
+      font-size: 0.92rem;
+    }
+    .btn-outline-light:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--gold-light);
+      color: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 760px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      /* NEW ROYAL IMAGE & REBALANCED GRADIENT */
+      background:
+        linear-gradient(90deg, rgba(20, 8, 38, 0.98) 0%, rgba(38, 16, 68, 0.85) 40%, rgba(38, 16, 68, 0.1) 100%),
+        url('https://images.unsplash.com/photo-1596765033591-749e3d60a3d5?auto=format&fit=crop&w=2000&q=90') center 25%/cover;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(217, 173, 84, 0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 160px;
+      background: linear-gradient(transparent, #fff);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 120px 0 160px;
+    }
+    .eyebrow {
+      color: var(--gold);
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      font-weight: 800;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero h1 {
+      font-size: clamp(3.4rem, 7.5vw, 7rem);
+      line-height: 0.95;
+      font-weight: 700;
+      max-width: 780px;
+      margin: 24px 0;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 span {
+      color: #e9c779;
+      font-style: italic;
+      display: inline-block;
+    }
+    .hero p {
+      color: #d9cceb;
+      font-size: 1.1rem;
+      line-height: 1.85;
+      max-width: 540px;
+      font-weight: 400;
+    }
+    .hero-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #f6e6bd;
+      font-size: 0.82rem;
+      margin-top: 28px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .hero-note i {
+      color: var(--gold);
+      font-size: 0.7rem;
+      animation: subtle-pulse 2s ease-in-out infinite;
+    }
+
+    /* ─── SECTIONS ─── */
+    .section-pad { padding: 110px 0; }
+
+    .section-kicker {
+      color: var(--purple-light);
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-kicker::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--gold);
+      display: inline-block;
+    }
+    .section-title {
+      font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+      color: var(--ink);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+    .section-copy {
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 620px;
+      font-size: 1rem;
+    }
+
+    /* ─── INTRO CARDS ─── */
+    .intro-card {
+      height: 100%;
+      background: var(--cream);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .intro-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--purple-light), var(--gold));
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .intro-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: transparent;
+    }
+    .intro-card:hover::before { opacity: 1; }
+    .intro-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #f0e8fa, #e3d4f5);
+      color: var(--purple);
+      font-size: 1.4rem;
+      margin-bottom: 24px;
+      transition: all var(--transition);
+    }
+    .intro-card:hover .intro-icon {
+      background: linear-gradient(135deg, var(--purple), var(--purple-light));
+      color: #fff;
+      transform: scale(1.05);
+    }
+    .intro-card h3 {
+      font-size: 1.45rem;
+      color: var(--ink);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .intro-card p {
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* ─── CONTESTANTS ─── */
+    .contestants-section { background: #faf8fc; }
+
+    .contestant-card {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 100%;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .contestant-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+    .contestant-photo {
+      height: 340px;
+      position: relative;
+      overflow: hidden;
+      background: #e8dff0;
+    }
+    .contestant-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .contestant-card:hover .contestant-photo img { transform: scale(1.08); }
+    .contestant-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 60%, rgba(26, 12, 46, 0.4));
+      pointer-events: none;
+    }
+    .contestant-number {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: rgba(26, 12, 46, 0.88);
+      backdrop-filter: blur(8px);
+      color: var(--gold-light);
+      padding: 8px 15px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      z-index: 1;
+    }
+    .candidate-tag {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: #fff;
+      color: var(--purple);
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 8px 14px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      z-index: 1;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .contestant-info { padding: 26px 24px; }
+    .contestant-info h3 {
+      font-size: 1.55rem;
+      color: var(--ink);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .contestant-info p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    .btn-vote {
+      width: 100%;
+      border-radius: 14px;
+      background: var(--ink);
+      color: #fff;
+      padding: 13px;
+      font-weight: 700;
+      border: 0;
+      transition: all var(--transition);
+      font-size: 0.9rem;
+      letter-spacing: 0.01em;
+    }
+    .btn-vote:hover {
+      background: var(--purple-light);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(123, 79, 190, 0.3);
+    }
+
+    /* ─── COUNTDOWN ─── */
+    .countdown-wrap {
+      background: linear-gradient(125deg, #1a0c2e 0%, #3d1a5e 50%, #5b2d91 100%);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 60px 56px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .countdown-wrap::before {
+      content: '✦';
+      position: absolute;
+      right: 3%;
+      top: -70px;
+      font-size: 22rem;
+      color: rgba(255,255,255,0.03);
+      pointer-events: none;
+      line-height: 1;
+    }
+    .countdown-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 20% 80%, rgba(217, 173, 84, 0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .countdown-label {
+      color: #e7c779;
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .timer {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .time-box {
+      min-width: 92px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 16px 18px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      transition: all var(--transition);
+    }
+    .time-box:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(217, 173, 84, 0.3);
+    }
+    .time-box strong {
+      display: block;
+      font-size: 2.1rem;
+      font-family: "Playfair Display", serif;
+      color: #f2d58c;
+      line-height: 1.2;
+    }
+    .time-box span {
+      font-size: 0.68rem;
+      color: #c9bcdb;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+    }
+
+    /* ─── HOW TO VOTE ─── */
+    .how-card {
+      border-left: 3px solid var(--gold);
+      padding: 6px 0 6px 24px;
+      margin-bottom: 32px;
+      transition: all var(--transition);
+    }
+    .how-card:hover {
+      border-left-color: var(--purple-light);
+      transform: translateX(4px);
+    }
+    .how-card h3 {
+      font-size: 1.25rem;
+      color: var(--ink);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .how-card p {
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 0;
+      font-size: 0.92rem;
+    }
+
+    .demo-alert {
+      font-size: 0.8rem;
+      color: #765f24;
+      background: #fff7df;
+      border: 1px solid #f1dfaa;
+      padding: 14px 16px;
+      border-radius: 14px;
+      line-height: 1.6;
+    }
+
+    /* ─── CTA ─── */
+    .cta {
+      background: var(--cream);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta::before {
+      content: '✦';
+      position: absolute;
+      left: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12rem;
+      color: rgba(91, 45, 145, 0.04);
+      pointer-events: none;
+    }
+    .cta-inner {
+      max-width: 720px;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #140a24;
+      color: #b8adc9;
+      padding: 64px 0 28px;
+    }
+    footer .footer-brand {
+      font-family: "Playfair Display", serif;
+      font-size: 1.55rem;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    footer a {
+      color: #b8adc9;
+      text-decoration: none;
+      transition: color var(--transition);
+      font-size: 0.9rem;
+    }
+    footer a:hover { color: var(--gold); }
+    footer h6 {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .social a {
+      width: 40px;
+      height: 40px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      margin-right: 8px;
+      transition: all var(--transition);
+      color: #b8adc9;
+    }
+    .social a:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #140a24;
+      transform: translateY(-2px);
+    }
+
+    /* ─── MODAL ─── */
+    .modal-content {
+      border: 0;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .modal-header {
+      background: var(--ink);
+      color: #fff;
+      border: 0;
+      padding: 22px 26px;
+    }
+    .modal-header .btn-close { filter: invert(1); opacity: 0.7; }
+    .modal-header .btn-close:hover { opacity: 1; }
+    .form-control, .form-select {
+      padding: 13px 16px;
+      border-radius: 12px;
+      border-color: var(--border-light);
+      font-size: 0.95rem;
+      transition: all var(--transition);
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--purple-light);
+      box-shadow: 0 0 0 0.2rem rgba(123, 79, 190, 0.12);
+    }
+
+    /* ─── REVEAL ANIMATION ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 991px) {
+      .hero { min-height: 720px; background-position: 75% center; }
+      .hero-content { padding: 110px 0 140px; }
+      .navbar-brand { font-size: 1.3rem; }
+    }
+    @media (max-width: 767px) {
+      .hero { min-height: 700px; background-position: 70% center; }
+      .hero-content { padding: 100px 0 130px; }
+      .hero h1 { font-size: clamp(3rem, 10vw, 4.2rem); }
+      .section-pad { padding: 76px 0; }
+      .contestant-photo { height: 380px; }
+      .countdown-wrap { padding: 36px 28px; }
+      .time-box { min-width: 76px; padding: 14px 12px; }
+      .time-box strong { font-size: 1.6rem; }
+      .intro-card { padding: 28px 24px; }
+      .section-title { font-size: clamp(2rem, 6vw, 2.6rem); }
+      .countdown-wrap::before { font-size: 14rem; top: -40px; }
+    }
+    @media (max-width: 575px) {
+      .hero h1 { font-size: 2.8rem; }
+      .hero p { font-size: 1rem; }
+      .timer { gap: 8px; }
+      .time-box { min-width: 64px; padding: 10px 8px; }
+      .time-box strong { font-size: 1.35rem; }
+      .time-box span { font-size: 0.6rem; }
+      .countdown-wrap { padding: 28px 20px; }
+      .contestant-photo { height: 320px; }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+  <div class="container">
+    <a class="navbar-brand" href="#home"><span class="brand-mark">✦</span> MISS CAC</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contestants">Contestants</a></li>
+        <li class="nav-item"><a class="nav-link" href="#how-to-vote">How to Vote</a></li>
+        <li class="nav-item ms-lg-3"><a class="btn btn-gold btn-sm mt-3 mt-lg-0" href="#contestants">Meet the Contestants <i class="bi bi-arrow-right ms-1"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="container hero-content">
+    <div class="eyebrow"><i class="bi bi-stars"></i> CACI • Children's Service</div>
+    <h1>Beauty. Grace.<br><span>Purpose.</span></h1>
+    <p>Celebrating confidence, character and the beautiful potential of our young ladies. Join us for a special experience of talent, inspiration and purpose.</p>
+    <div class="d-flex flex-wrap gap-3 mt-4">
+      <a href="#contestants" class="btn btn-gold">Meet the Contestants <i class="bi bi-arrow-right ms-2"></i></a>
+      <a href="#about" class="btn btn-outline-light">Discover MISS CAC</a>
+    </div>
+    <div class="hero-note"><i class="bi bi-heart-fill"></i> A celebration of confidence, character and purpose</div>
+  </div>
+</header>
+
+<section class="section-pad" id="about">
+  <div class="container">
+    <div class="row align-items-end g-4 mb-5">
+      <div class="col-lg-7 reveal"><div class="section-kicker mb-3">More than a pageant</div><h2 class="section-title">A platform to shine,<br>grow and inspire.</h2></div>
+      <div class="col-lg-5 reveal"><p class="section-copy mb-0">MISS CAC is a celebration of the gifts, confidence and character of the girls in our Children's Service. It is about discovering potential, expressing creativity and encouraging every participant to shine.</p></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 reveal"><div class="intro-card"><div class="intro-icon"><i class="bi bi-gem"></i></div><h3>Confidence</h3><p>Encouraging every contestant to believe in herself, express her gifts and step forward with confidence.</p></div></div>
+      <div class="col-md-4 reveal"><div class="intro-card"><div class="intro-icon"><i class="bi bi-heart"></i></div><h3>Character</h3><p>Celebrating kindness, respect, discipline and the values that make a lasting difference.</p></div></div>
+      <div class="col-md-4 reveal"><div class="intro-card"><div class="intro-icon"><i class="bi bi-stars"></i></div><h3>Purpose</h3><p>Creating an uplifting space where talent, creativity and positive purpose can be celebrated.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad contestants-section" id="contestants">
+  <div class="container">
+    <div class="text-center mb-5 reveal"><div class="section-kicker justify-content-center mb-3">Meet our stars</div><h2 class="section-title">The Contestants</h2><p class="section-copy mx-auto mt-3">Get to know the young ladies bringing their confidence, creativity and unique personalities to MISS CAC.</p></div>
+    <div class="row g-4" id="contestantGrid"></div>
+    <div class="text-center mt-5"><span class="text-muted small"><i class="bi bi-info-circle me-1"></i> Contestant names and photographs shown here are sample placeholders for this demonstration.</span></div>
+  </div>
+</section>
+
+<section class="section-pad" id="event">
+  <div class="container">
+    <div class="countdown-wrap reveal">
+      <div class="row align-items-center position-relative" style="z-index:1">
+        <div class="col-lg-7"><div class="countdown-label">The big celebration</div><h2 class="serif display-5 fw-bold mb-3" style="letter-spacing:-0.02em;">The stage is waiting.</h2><p class="mb-0 text-white-50" style="line-height:1.8;">A memorable celebration of talent, confidence and purpose. Event date and venue details will be announced by the organisers.</p></div>
+        <div class="col-lg-5 mt-4 mt-lg-0"><div class="countdown-label">Countdown to event</div><div class="timer"><div class="time-box"><strong id="days">--</strong><span>Days</span></div><div class="time-box"><strong id="hours">--</strong><span>Hours</span></div><div class="time-box"><strong id="minutes">--</strong><span>Minutes</span></div><div class="time-box"><strong id="seconds">--</strong><span>Seconds</span></div></div><div class="small text-white-50 mt-3" style="font-size:0.78rem;">Demo countdown — set the real event date in the page script.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad pt-0" id="how-to-vote">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5 reveal"><div class="section-kicker mb-3">Show your support</div><h2 class="section-title mb-3">Your support<br>makes a difference.</h2><p class="section-copy">In the live voting platform, supporters will be able to select a contestant and follow the official voting instructions. This preview demonstrates the experience only.</p><button class="btn btn-gold mt-3" onclick="showDemoNotice()">Explore demo voting <i class="bi bi-arrow-right ms-2"></i></button></div>
+      <div class="col-lg-7 reveal">
+        <div class="how-card"><h3>01. Choose a contestant</h3><p>Browse the contestant profiles and select the young lady you would like to support.</p></div>
+        <div class="how-card"><h3>02. Enter your vote quantity</h3><p>The live platform will show the applicable voting amount before you proceed.</p></div>
+        <div class="how-card"><h3>03. Follow the official payment steps</h3><p>On the live website, payment instructions will be provided securely through the approved payment provider.</p></div>
+        <div class="demo-alert"><i class="bi bi-shield-exclamation me-2"></i><strong>Preview only:</strong> This Vercel demo does not accept payments, save votes or update official results.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad cta">
+  <div class="container cta-inner reveal"><div class="section-kicker justify-content-center mb-3">Be part of the experience</div><h2 class="section-title mb-3">Let's celebrate greatness.</h2><p class="section-copy mx-auto mb-4">Join us in cheering on our contestants and celebrating the promise, talent and purpose of the next generation.</p><a href="#contestants" class="btn btn-gold">View Contestants <i class="bi bi-arrow-up-right ms-1"></i></a></div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row gy-5 align-items-start">
+      <div class="col-lg-5"><div class="footer-brand"><span class="brand-mark">✦</span> MISS CAC</div><p class="mt-3 mb-0" style="max-width:360px;line-height:1.8;font-size:0.9rem;">Beauty, grace and purpose. A celebration of confidence, character and the gifts within every young lady.</p></div>
+      <div class="col-6 col-lg-3"><h6>Explore</h6><div class="d-flex flex-column gap-2"><a href="#about">About MISS CAC</a><a href="#contestants">Contestants</a><a href="#event">Event details</a></div></div>
+      <div class="col-6 col-lg-4"><h6>Connect</h6><p class="small" style="line-height:1.7;">Follow official CACI announcements for event updates and details.</p><div class="social mt-3"><a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a><a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a><a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a></div></div>
+    </div>
+    <hr class="border-light border-opacity-10 my-4">
+    <div class="d-flex flex-column flex-md-row justify-content-between gap-2 small" style="font-size:0.82rem;"><span>© <span id="year"></span> MISS CAC. All rights reserved.</span><span>Frontend demonstration • Not the live voting system</span></div>
+  </div>
+</footer>
+
+<div class="modal fade" id="voteModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+    <div class="modal-header"><div><div class="small text-white-50" style="font-size:0.72rem;letter-spacing:0.14em;">DEMO VOTING</div><h5 class="modal-title serif" id="modalContestant" style="font-size:1.35rem;">Support a contestant</h5></div><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+    <div class="modal-body p-4">
+      <div class="demo-alert mb-3"><i class="bi bi-info-circle me-2"></i>This is a visual preview. No payment will be requested and no vote will be recorded.</div>
+      <label class="form-label fw-semibold" for="demoQuantity">Number of votes</label>
+      <input class="form-control mb-3" id="demoQuantity" type="number" min="1" max="100" value="1" oninput="updateDemoTotal()">
+      <div class="d-flex justify-content-between align-items-center p-3 rounded-3" style="background:#f8f4fb;border-radius:14px;"><span class="text-muted" style="font-size:0.9rem;">Illustrative total</span><strong class="fs-5" id="demoTotal" style="font-family:'Playfair Display',serif;color:var(--ink);">GH₵0.50</strong></div>
+      <button class="btn btn-vote mt-3" onclick="showDemoNotice()">Continue (Preview only)</button>
+    </div>
+  </div></div>
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3"><div id="demoToast" class="toast border-0" role="alert" style="border-radius:16px;overflow:hidden;"><div class="toast-header" style="background:var(--ink);color:#fff;border:0;"><strong class="me-auto">MISS CAC Demo</strong><button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button></div><div class="toast-body" style="font-size:0.9rem;">This is a frontend preview. Real voting and payment are disabled.</div></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Replace these sample profiles with approved contestant names and images.
+  const contestants = [
+    {number:"01",name:"Contestant One",tag:"Confidence",about:"A bright personality with a love for learning and creativity.",image:"https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=85"},
+    {number:"02",name:"Contestant Two",tag:"Creativity",about:"Bringing imagination, energy and a joyful spirit to the stage.",image:"https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=85"},
+    {number:"03",name:"Contestant Three",tag:"Purpose",about:"A thoughtful young lady ready to share her gifts and talents.",image:"https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=85"},
+    {number:"04",name:"Contestant Four",tag:"Grace",about:"Celebrating kindness, confidence and a passion for making a difference.",image:"https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=900&q=85"},
+    {number:"05",name:"Contestant Five",tag:"Talent",about:"A unique voice, a confident spirit and a heart full of possibility.",image:"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"},
+    {number:"06",name:"Contestant Six",tag:"Inspiration",about:"Ready to inspire others through character, courage and creativity.",image:"https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=900&q=85"}
+  ];
+  const grid=document.getElementById("contestantGrid");
+  grid.innerHTML=contestants.map((c,i)=>`
+    <div class="col-sm-6 col-lg-4 reveal">
+      <article class="contestant-card">
+        <div class="contestant-photo"><img src="${c.image}" alt="${c.name}" loading="lazy"><span class="contestant-number">NO. ${c.number}</span><span class="candidate-tag">${c.tag}</span></div>
+        <div class="contestant-info"><h3>${c.name}</h3><p>${c.about}</p><button class="btn btn-vote" onclick="openVote('${c.name}')">Support Contestant <i class="bi bi-arrow-right ms-1"></i></button></div>
+      </article>
+    </div>`).join("");
+  function openVote(name){document.getElementById("modalContestant").textContent=name;document.getElementById("demoQuantity").value=1;updateDemoTotal();new bootstrap.Modal(document.getElementById("voteModal")).show();}
+  function updateDemoTotal(){let q=Math.max(1,Math.min(100,parseInt(document.getElementById("demoQuantity").value)||1));document.getElementById("demoTotal").textContent="GH₵"+(q*.5).toFixed(2);}
+  function showDemoNotice(){bootstrap.Toast.getOrCreateInstance(document.getElementById("demoToast")).show();}
+  document.getElementById("year").textContent=new Date().getFullYear();
+  // Set your actual event date below (YYYY-MM-DDTHH:MM:SS). Null displays placeholder dashes.
+  const eventDate = null; // Example: "2026-12-20T10:00:00"
+  function tick(){if(!eventDate)return;let diff=new Date(eventDate).getTime()-Date.now();if(diff<=0)diff=0;const units={days:86400000,hours:3600000,minutes:60000,seconds:1000};let remaining=diff;for(const [id,size] of Object.entries(units)){let n=Math.floor(remaining/size);remaining%=size;document.getElementById(id).textContent=String(n).padStart(2,"0");}}
+  if(eventDate){tick();setInterval(tick,1000);}
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target);}}),{threshold:.12});
+  document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+  // Navbar scroll effect
+  const navbar = document.getElementById('mainNavbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) { navbar.classList.add('scrolled'); }
+    else { navbar.classList.remove('scrolled'); }
+  });
+
+  // Close mobile menu on nav click
+  document.querySelectorAll(".navbar a").forEach(a=>a.addEventListener("click",()=>{const nav=document.getElementById("mainNav");if(nav.classList.contains("show"))bootstrap.Collapse.getOrCreateInstance(nav).hide();}));
+</script>
+</body>
+</html>
